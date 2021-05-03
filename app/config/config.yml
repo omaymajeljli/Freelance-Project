@@ -71,12 +71,16 @@ swiftmailer:
     spool:     { type: memory }
 
 fos_user:
-            db_driver: orm # other valid values are 'mongodb' and 'couchdb'
-            firewall_name: main
-            user_class: AppBundle\Entity\User
-            from_email:
-                address: "testapp@testapp.com"
-                sender_name: "Test App"
-            registration:
-                form:
-                    type: AppBundle\Form\RegistrationFormType
+        db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+        firewall_name: main
+        user_class: AppBundle\Entity\User
+        from_email:
+            address: "testapp@testapp.com"
+            sender_name: "Test App"
+        registration:
+            form:
+                type: AppBundle\Form\RegistrationFormType
+        profile:
+            form:
+                type: AppBundle\Form\ProfileFormType
+            

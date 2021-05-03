@@ -24,10 +24,10 @@ class SecurityController extends Controller
     {
         $authChecker = $this->container->get('security.authorization_checker');
         if($authChecker->isGranted('ROLE_FREELANCER')){
-            return $this->render('AppBundle:Freelancer:profile.html.twig');
+            return $this->render("@FOSUser/Freelancer/Profile/show.html.twig");
         }
         else if ($authChecker->isGranted('ROLE_EMPLOYER')){
-            return $this->render('AppBundle:Employer:profile.html.twig');
+            return $this->render("@FOSUser/Employer/Profile/show_content.html.twig");
         } else{
         return $this->render('@FOSUser/Security/login_content.html.twig', array(
                 // ...

@@ -7,7 +7,12 @@ services:
    app.form.registration:
         class: AppBundle\Form\RegistrationFormType
         tags:
-            - { name: form.type }
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+            - { name: 'form.type' }
+
+   app.form.profile:
+        class: AppBundle\Form\ProfileFormType
+        tags:
+            - { name: 'form.type', alias: app_user_profile}
+
+      
+
