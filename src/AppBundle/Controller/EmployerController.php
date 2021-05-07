@@ -12,12 +12,12 @@ class EmployerController extends Controller
      */
     public function showAction()
     {  
-        $query = $this->getDoctrine()->getEntityManager()
-        ->createQuery(
-            'SELECT u FROM AppBundle:User u WHERE u.roles LIKE :role'
-        )->setParameter('role', '%"ROLE_FREELANCER"%');
+        $em = $this->getDoctrine()->getManager();
+       $query = $em->createQuery(
+        'SELECT u FROM AppBundle:User u WHERE u.roles LIKE :role'
+    )->setParameter('role', '%"ROLE_FREELANCER"%');
 
-        $users = $query->getResult();
+    $users = $query->getResult();
         return $this->render('AppBundle:Employer:show.html.twig', array(
             'users'=>$users
         ));
