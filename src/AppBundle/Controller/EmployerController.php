@@ -18,7 +18,7 @@ class EmployerController extends Controller
         )->setParameter('role', '%"ROLE_FREELANCER"%');
 
         $users = $query->getResult();
-        return $this->render('AppBundle:Freelancer:show.html.twig', array(
+        return $this->render('AppBundle:Employer:show.html.twig', array(
             'users'=>$users
         ));
     }

@@ -5,6 +5,7 @@
 
         use FOS\UserBundle\Model\User as BaseUser;
         use Doctrine\ORM\Mapping as ORM;
+        use Doctrine\Common\Collections\ArrayCollection;
 
         /**
          * @ORM\Entity
@@ -19,10 +20,20 @@
              */
             protected $id;
 
+            /**
+            * @ORM\OneToMany(targetEntity="AppBundle\Entity\Job", mappedBy="user")
+            */
+            private $job;
+
+            /**
+            * @ORM\OneToMany(targetEntity="AppBundle\Entity\Task", mappedBy="user")
+            */
+            private $task;
+
             public function __construct()
             {
                 parent::__construct();
-                // your own logic
+                $this->job = new ArrayCollection();
 
              
             }
